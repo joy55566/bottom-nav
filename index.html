@@ -92,38 +92,31 @@
 
 
 <body class="dark-mode">
-   
-    <div class="bottom-nav-container">
-        <nav class="bottom-navbar">
-            <a href="#home" class="nav-icon active" data-section="home">
-                <i class="fas fa-home"></i>
-                <span>Home</span>
-            </a>
-            <a href="#about" class="nav-icon" data-section="about">
-                <i class="fas fa-user"></i>
-                <span>About</span>
-            </a>
-            <a href="#services" class="nav-icon" data-section="services">
-                <i class="fas fa-tools"></i>
-                <span>Services</span>
-            </a>
-            <a href="#skills" class="nav-icon" data-section="skills">
-                <i class="fas fa-cogs"></i>
-                <span>Skills</span>
-            </a>
-            <a href="#projects" class="nav-icon" data-section="projects">
-                <i class="fas fa-briefcase"></i>
-                <span>Projects</span>
-            </a>
-            <a href="#contact" class="nav-icon" data-section="contact">
-                <i class="fas fa-envelope"></i>
-                <span>Contact</span>
-            </a>
-        </nav>
-        <button id="theme-toggle" class="theme-toggle-bottom" title="Toggle Dark/Light Mode">
-            <i class="fas fa-moon"></i>
-        </button>
-    </div>
+    
+    <!-- Top Navigation Bar -->
+    <nav class="top-navbar">
+        <div class="nav-brand">
+            <h1>Joy</h1>
+        </div>
+        <button class="mobile-menu-toggle"><i class="fas fa-bars"></i></button>
+        <div class="mobile-menu">
+            <a href="#home" class="mobile-nav-item active">Home</a>
+            <a href="#about" class="mobile-nav-item">About</a>
+            <a href="#skills" class="mobile-nav-item">Skills</a>
+            <a href="#projects" class="mobile-nav-item">Projects</a>
+            <a href="#contact" class="mobile-nav-item">Contact</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button id="theme-toggle" class="theme-toggle"><i class="fas fa-moon"></i></button>
+    </nav>
+
+
     
     <section id="home" class="hero">
         <div class="hero-content">
@@ -563,7 +556,107 @@
                 });
             });
         });
+
+        // Add click event listeners to nav items to trigger animations
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                
+                // Reset AOS animations for the target section
+                const elements = targetSection.querySelectorAll('[data-aos]');
+                elements.forEach(element => {
+                    element.classList.remove('aos-animate');
+                    // Force reflow
+                    void element.offsetWidth;
+                    // Re-add animation
+                    element.classList.add('aos-animate');
+                });
+            });
+        });
     </script>
     <script src="script.js"></script>
+    <script>
+        // Mobile menu functionality
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        // Add click event listener to toggle menu
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            mobileMenuToggle.classList.toggle('active');
+            
+            // Add animation class for smooth transitions
+            mobileMenu.classList.add('animate');
+            
+            // Remove animation class after transition
+            setTimeout(() => {
+                mobileMenu.classList.remove('animate');
+            }, 300);
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                mobileMenu.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+            }
+        });
+
+        // Handle mobile menu navigation clicks with smooth scrolling
+        document.querySelectorAll('.mobile-nav-item').forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default link behavior
+                const targetId = item.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                // Close the mobile menu
+                mobileMenu.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+                
+                // Smooth scroll to the target section
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                
+                // Update active state
+                document.querySelectorAll('.mobile-nav-item').forEach(navItem => {
+                    navItem.classList.remove('active');
+                });
+                item.classList.add('active');
+            });
+        });
+
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        body.classList.add(savedTheme);
+        
+        if (savedTheme === 'light') {
+            themeToggle.querySelector('i').classList.remove('fa-moon');
+            themeToggle.querySelector('i').classList.add('fa-sun');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = body.classList.contains('light-mode') ? 'dark' : 'light';
+            body.classList.toggle('light-mode');
+            localStorage.setItem('theme', currentTheme);
+            
+            // Update icon
+            if (currentTheme === 'dark') {
+                themeToggle.querySelector('i').classList.remove('fa-sun');
+                themeToggle.querySelector('i').classList.add('fa-moon');
+            } else {
+                themeToggle.querySelector('i').classList.remove('fa-moon');
+                themeToggle.querySelector('i').classList.add('fa-sun');
+            }
+        });
+    </script>
 </body>
 </html>
