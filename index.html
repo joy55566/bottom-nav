@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joy's Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- AOS CSS CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    
+    
+    <style>
+        .words-wrapper {
+            display: inline-block;
+            position: relative;
+        }
+        .word {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .word.active {
+            opacity: 1;
+        }
+
+        .profession-text {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .flip-animation {
+            display: inline-block;
+            position: relative;
+            min-width: 250px;
+            height: 45px;
+            overflow: hidden;
+        }
+
+        .flip-item {
+            color: #00ff00;
+            position: absolute;
+            width: 100%;
+            animation: flip 8s infinite;
+            opacity: 0;
+            transform-origin: 50% 100%;
+            transform: rotateX(180deg);
+        }
+
+        @keyframes flip {
+            0%, 20% {
+                transform: rotateX(180deg);
+                opacity: 0;
+            }
+            25%, 45% {
+                transform: rotateX(0);
+                opacity: 1;
+            }
+            50%, 70% {
+                transform: rotateX(0);
+                opacity: 1;
+            }
+            75%, 95% {
+                transform: rotateX(-180deg);
+                opacity: 0;
+            }
+        }
+
+        .typewriter {
+            color: #00ff00;
+            border-right: 3px solid #00ff00;
+            padding-right: 5px;
+            animation: blink 0.75s step-end infinite;
+        }
+
+        @keyframes blink {
+            from, to { border-color: transparent }
+            50% { border-color: #00ff00 }
+        }
+    </style>
+</head>
+
+
+<body class="dark-mode">
+   
+    <div class="bottom-nav-container">
+        <nav class="bottom-navbar">
+            <a href="#home" class="nav-icon active" data-section="home">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="#about" class="nav-icon" data-section="about">
+                <i class="fas fa-user"></i>
+                <span>About</span>
+            </a>
+            <a href="#services" class="nav-icon" data-section="services">
+                <i class="fas fa-tools"></i>
+                <span>Services</span>
+            </a>
+            <a href="#skills" class="nav-icon" data-section="skills">
+                <i class="fas fa-cogs"></i>
+                <span>Skills</span>
+            </a>
+            <a href="#projects" class="nav-icon" data-section="projects">
+                <i class="fas fa-briefcase"></i>
+                <span>Projects</span>
+            </a>
+            <a href="#contact" class="nav-icon" data-section="contact">
+                <i class="fas fa-envelope"></i>
+                <span>Contact</span>
+            </a>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle-bottom" title="Toggle Dark/Light Mode">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+    
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text" data-aos="flip-right" data-aos-delay="100">
+                <h2 class="hello-text" data-aos="flip-up" data-aos-delay="200">Hello I'm</h2>
+                <h1 class="name-text" data-aos="flip-up" data-aos-delay="300">Joy</h1>
+                <h3 class="profession-text" data-aos="flip-up" data-aos-delay="400">
+                    I am a <span class="typewriter"></span>
+                </h3>
+                <p class="hero-description" data-aos="flip-up" data-aos-delay="500">
+                    I'm a web Designer with extensive experience for over 3 years.
+                    expertise is to create and website design, Frontend design, and many more...
+                </p>
+                <div class="social-links" data-aos="flip-up" data-aos-delay="700">
+                    <a href="https://wa.me/+8801892146659" class="social-icon" target="_blank" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="tel:+8801892146659" class="social-icon" title="Call Me">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                    <a href="mailto:joynixon271@gmail.com" class="social-icon" title="Email Me">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=100082733041446" class="social-icon" target="_blank" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </div>
+                <a href="#about" class="more-about" data-aos="flip-up" data-aos-delay="800">More About Me</a>
+            </div>
+            <div class="hero-image" data-aos="flip-left" data-aos-delay="400">
+                <div class="image-glow"></div>
+                <div class="image-circle">
+                    <img src="/profile.jpg" alt="Profile Picture" data-aos="flip-up" data-aos-delay="200">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="section-title" data-aos="flip-up">
+            <h2 data-aos="flip-right" data-aos-delay="100">About <span class="highlight">Me</span></h2>
+            <h3 data-aos="flip-left" data-aos-delay="200">Who I Am</h3>
+        </div>
+        <div class="about-content">
+            <div class="about-image" data-aos="flip-up" data-aos-delay="300">
+                <div class="image-border">
+                    <img src="/profile.jpg" alt="About Me Picture">
+                </div>
+            </div>
+            <div class="about-text" data-aos="flip-up" data-aos-delay="400">
+                <p data-aos="flip-up" data-aos-delay="500">
+                    I'm a passionate web developer with a strong foundation in both frontend and backend technologies.
+                    My journey in web development started 3 years ago, and since then, I've been creating beautiful
+                    and functional websites that leave a lasting impression.
+                </p>
+                <div class="about-info">
+                    <div class="info-item" data-aos="flip-right" data-aos-delay="500">
+                        <span class="info-title">Experience:</span>
+                        <span class="info-value">3+ Years</span>
+                    </div>
+                    <div class="info-item" data-aos="flip-right" data-aos-delay="600">
+                        <span class="info-title">Specialty:</span>
+                        <span class="info-value">Web Design</span>
+                    </div>
+                    <div class="info-item" data-aos="flip-right" data-aos-delay="700">
+                        <span class="info-title">Address:</span>
+                        <span class="info-value">Bangladesh</span>
+                    </div>
+                    <div class="info-item" data-aos="flip-right" data-aos-delay="800">
+                        <span class="info-title">Email:</span>
+                        <span class="info-value">joy@example.com</span>
+                    </div>
+                </div>
+                <a href="#" class="download-cv" data-aos="flip-up" data-aos-delay="800">Download CV</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="section-title" data-aos="flip-up">
+            <h2 data-aos="flip-right" data-aos-delay="100">My <span class="highlight">Services</span></h2>
+            <h3 data-aos="flip-left" data-aos-delay="200">What I Provide</h3>
+        </div>
+        <div class="services-grid">
+            <!-- Service Card 1 -->
+            <div class="service-card card-html" data-aos="flip-left" data-aos-delay="100">
+                <div class="service-icon"><i class="fab fa-html5"></i></div>
+                <h3>HTML Development</h3>
+                <p>Semantic, accessible, and SEO-friendly HTML for modern web applications.</p>
+            </div>
+            <!-- Service Card 2 -->
+            <div class="service-card card-css" data-aos="flip-left" data-aos-delay="150">
+                <div class="service-icon"><i class="fab fa-css3-alt"></i></div>
+                <h3>CSS Styling</h3>
+                <p>Beautiful, responsive, and animated interfaces using modern CSS and preprocessors.</p>
+            </div>
+            <!-- Service Card 3 -->
+            <div class="service-card card-js" data-aos="flip-left" data-aos-delay="200">
+                <div class="service-icon"><i class="fab fa-js-square"></i></div>
+                <h3>JavaScript</h3>
+                <p>Interactive, dynamic, and performant web experiences with vanilla JS and frameworks.</p>
+            </div>
+            <!-- Service Card 4 -->
+            <div class="service-card card-react" data-aos="flip-left" data-aos-delay="250">
+                <div class="service-icon"><i class="fab fa-react"></i></div>
+                <h3>React Development</h3>
+                <p>Component-based, scalable, and maintainable SPAs with React and modern tooling.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="section-title" data-aos="flip-up">
+            <h2 data-aos="flip-right" data-aos-delay="100">My <span class="highlight">Skills</span></h2>
+            <h3 data-aos="flip-left" data-aos-delay="200">What I Know</h3>
+        </div>
+        <div class="skills-container">
+            <div class="skill-category" data-aos="flip-right" data-aos-delay="300">
+                <h3>Frontend Development</h3>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>HTML</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>CSS</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>JavaScript</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>React</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-category" data-aos="flip-left" data-aos-delay="400">
+                <h3>Backend Development</h3>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Python</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Node.js</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>MySQL</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>MongoDB</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="section-title" data-aos="flip-up">
+            <h2>My <span class="highlight">Projects</span></h2>
+            <h3>Recent Works</h3>
+        </div>
+        <div class="projects-grid">
+            <!-- Project Card 1 -->
+            <div class="project-card card-red" data-aos="flip-left" data-aos-delay="100">
+                <div class="project-date"><span class="date-month">JAN</span><span class="date-day">22</span></div>
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=800" alt="Portfolio Website">
+                </div>
+                <div class="project-content">
+                    <h3>Portfolio Website</h3>
+                    <p>A modern portfolio website built with HTML, CSS, and JavaScript. Features smooth animations, dark/light mode, and responsive design.</p>
+                </div>
+            </div>
+            <!-- Project Card 2 -->
+            <div class="project-card card-green" data-aos="flip-left" data-aos-delay="150">
+                <div class="project-date"><span class="date-month">FEB</span><span class="date-day">25</span></div>
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800" alt="Data Analysis Dashboard">
+                </div>
+                <div class="project-content">
+                    <h3>Data Analysis Dashboard</h3>
+                    <p>An interactive dashboard for data visualization and analysis. Built with Python, Pandas, and Plotly.</p>
+                </div>
+            </div>
+            <!-- Project Card 3 -->
+            <div class="project-card card-blue" data-aos="flip-left" data-aos-delay="200">
+                <div class="project-date"><span class="date-month">MAR</span><span class="date-day">12</span></div>
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800" alt="ML Prediction Model">
+                </div>
+                <div class="project-content">
+                    <h3>ML Prediction Model</h3>
+                    <p>A machine learning model for predictive analytics. Uses scikit-learn and TensorFlow for model training.</p>
+                </div>
+            </div>
+            <!-- Project Card 4 -->
+            <div class="project-card card-yellow" data-aos="flip-left" data-aos-delay="250">
+                <div class="project-date"><span class="date-month">APRIL</span><span class="date-day">05</span></div>
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800" alt="Full Stack Web App">
+                </div>
+                <div class="project-content">
+                    <h3>Full Stack Web App</h3>
+                    <p>A full-stack web application with user authentication, database integration, and RESTful API.</p>
+                </div>
+            </div>
+            <!-- Project Card 5 -->
+            <div class="project-card card-purple" data-aos="flip-left" data-aos-delay="300">
+                <div class="project-date"><span class="date-month">MAY</span><span class="date-day">20</span></div>
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="E-commerce Platform">
+                </div>
+                <div class="project-content">
+                    <h3>E-commerce Platform</h3>
+                    <p>A scalable e-commerce platform with product management, shopping cart, and payment integration.</p>
+                </div>
+            </div>
+            <!-- Project Card 6 -->
+            <div class="project-card card-orange" data-aos="flip-left" data-aos-delay="350">
+                <div class="project-date"><span class="date-month">JUNE</span><span class="date-day">30</span></div>
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?w=800" alt="Mobile App UI Kit">
+                </div>
+                <div class="project-content">
+                    <h3>Mobile App UI Kit</h3>
+                    <p>A modern mobile app UI kit designed for fast prototyping and beautiful interfaces.</p>
+                </div>
+            </div>
+            <!-- Project Card 7 -->
+            <div class="project-card card-cyan" data-aos="flip-left" data-aos-delay="400">
+                <div class="project-date"><span class="date-month">JULY</span><span class="date-day">15</span></div>
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=800" alt="Blog Platform">
+                </div>
+                <div class="project-content">
+                    <h3>Blog Platform</h3>
+                    <p>A feature-rich blog platform with markdown support, comments, and user authentication.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="section-title" data-aos="flip-up">
+            <h2 data-aos="flip-right" data-aos-delay="100">Contact <span class="highlight">Me</span></h2>
+            <h3 data-aos="flip-left" data-aos-delay="200">Get In Touch</h3>
+        </div>
+        <div class="contact-container">
+  <!-- বাম পাশের তথ্য -->
+  <div class="contact-info">
+  <div class="contact-card" data-aos="flip-up" data-aos-delay="100">
+    <i class="fas fa-phone"></i>
+    <h3>Phone</h3>
+    <p>+880 1892146659</p>
+  </div>
+  <div class="contact-card" data-aos="flip-up" data-aos-delay="200">
+    <i class="fab fa-whatsapp"></i>
+    <h3>WhatsApp</h3>
+    <p>+880 1892146659</p>
+  </div>
+  <div class="contact-card" data-aos="flip-up" data-aos-delay="200">
+    <i class="fas fa-envelope"></i>
+    <h3>Email</h3>
+    <p>jaynikon27@gmail.com</p>
+  </div>
+</div>
+  <!-- ডান পাশের ফর্ম (বড় সাইজ) -->
+  <div class="contact-form" data-aos="flip-up" data-aos-delay="100">
+    <h3>Send Message</h3>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <input type="text" placeholder="Subject" required>
+      <textarea placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content" data-aos="flip-up" data-aos-delay="200">
+            <div class="footer-logo">
+                <div class="logo-text">J</div>
+                <div class="logo-dot"></div>
+                <span>Joy</span>
+            </div>
+            <div class="contact-social">
+                    <h3>Follow Me</h3>
+                    <div class="social-links">
+                        <a href="https://wa.me/+8801892146659" class="social-icon" target="_blank" title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="tel:+8801892146659" class="social-icon" title="Call Me">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                        <a href="mailto:joynixon271@gmail.com" class="social-icon" title="Email Me">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=100082733041446" class="social-icon" target="_blank" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://github.com/joy55566/Python-Tutorial" class="social-icon" target="_blank" title="GitHub">
+    <i class="fab fa-github"></i>
+</a>
+<a href="https://github.com/joy55566/Python-Tutorial" class="social-icon" target="_blank" title="LinkedIn">
+    <i class="fab fa-linkedin-in"></i>
+</a>
+                    </div>
+                </div>
+            </div>
+            
+        <div class="footer-bottom">
+            <p>&copy; 2025 Joy. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const words = ['Frontend Developer', 'Backend Developer', 'Data Analyst', 'Data Scientist'];
+        const typewriter = document.querySelector('.typewriter');
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let isWaiting = false;
+
+        function type() {
+            const currentWord = words[wordIndex];
+            
+            if (isDeleting) {
+                // Remove characters
+                typewriter.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                // Add characters
+                typewriter.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            // Typing speed
+            let typeSpeed = isDeleting ? 100 : 150;
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                // Delay before start deleting
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                // Move to next word
+                wordIndex = (wordIndex + 1) % words.length;
+                // Delay before start typing
+                typeSpeed = 500;
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+
+        // Start the animation
+        setTimeout(type, 1000);
+    </script>
+    
+    <!-- AOS JS CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS with custom settings for repeating animations
+        AOS.init({
+            duration: 1000,    // Animation duration in ms
+            offset: 100,       // Offset (in px) from the original trigger point
+            once: false,       // Animations will repeat every time
+            easing: 'ease-in-out', // Animation easing
+            mirror: true,      // Elements will animate out while scrolling past them
+            anchorPlacement: 'top-bottom', // Anchor placement
+            perspective: 1000,  // 3D perspective value
+            disable: 'mobile'  // Disable on mobile devices for better performance
+        });
+        
+
+        // Add click event listeners to nav items to trigger animations
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                
+                // Reset AOS animations for the target section
+                const elements = targetSection.querySelectorAll('[data-aos]');
+                elements.forEach(element => {
+                    element.classList.remove('aos-animate');
+                    // Force reflow
+                    void element.offsetWidth;
+                    // Re-add animation
+                    element.classList.add('aos-animate');
+                });
+            });
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
