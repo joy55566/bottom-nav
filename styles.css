@@ -808,11 +808,17 @@ body.light-mode .cursor-dot {
     padding-right: 1.5rem;
     overflow-x: unset;
 }
-.project-card, .service-card {
+/* .project-card, .service-card {
     flex: 1 1 0;
-    max-width: 300px;
-    min-width: 0;
-    margin: 0;
+    width: 600px;
+    box-shadow: 0 4px 24px 0 rgba(0,0,0,0.18), 0 0 24px 0 var(--card-glow, #fff);
+    border: 2px solid var(--primary-color);
+    transition: box-shadow 0.25s, border-color 0.25s;
+} */
+ .project-card, .service-card{
+    width: 300px;
+    height: 350px;
+    border-radius: 20px;
     box-shadow: 0 4px 24px 0 rgba(0,0,0,0.18), 0 0 24px 0 var(--card-glow, #fff);
     border: 2px solid var(--primary-color);
     transition: box-shadow 0.25s, border-color 0.25s;
