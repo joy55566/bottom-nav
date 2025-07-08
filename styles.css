@@ -796,8 +796,8 @@ body.light-mode .cursor-dot {
 .projects-grid, .services-grid {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: stretch;
+    justify-content: center;
+    align-items: center;
     gap: 1.2rem;
     margin-top: 2rem;
     margin-bottom: 2rem;
