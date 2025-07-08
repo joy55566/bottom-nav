@@ -795,7 +795,7 @@ body.light-mode .cursor-dot {
 /* Projects Section - 4 Card Grid (smaller, side by side, 3D ready) */
 .projects-grid, .services-grid {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: stretch;
     gap: 1.2rem;
